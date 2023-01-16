@@ -1,0 +1,102 @@
+.container{
+    display : grid;
+    grid-gap : 10px;
+    height : 100vh;
+    grid-template-columns: 300px 1fr 300px;
+    grid-template-rows : 100px 100px 1fr 150px 150px;
+    grid-template-areas :'header header header'
+                        'menu main top'
+                        'menu main aside'
+                        'menu main bottom'
+                        'footer footer footer';
+
+}
+.container div {
+    background-color: #ffff;
+    padding: 20px;
+    
+
+}
+.container .aside .imglist table{
+    padding-left :0px;
+    border-style: solid;
+    border-color: #000;
+    border-width : 1px;
+    width:250px;
+}
+.container .aside .imglist img{
+    max-width: 100%;
+    border-style: solid;
+    border-color: gray;
+    border-width : 1px;
+}
+.container .aside .imglist td{
+    border: #000;
+}
+.container .aside #ImgUpload{
+    visibility: hidden;
+}
+
+.header{
+    grid-area: header;
+    background-color : #ffff;
+    font-size : 30px;
+    opacity: 0.9;
+}
+.menu{
+    grid-area: menu;
+    opacity : 0.9;
+}
+.main{
+    grid-area: main;
+    opacity : 0.0;
+}
+.top{
+    grid-area: top;
+    opacity: 0.9;
+}
+.top .content{
+    padding-top :0ch;
+    padding-left : 0ch;
+    
+    grid-area: top;
+    
+}
+.aside{
+    grid-area: aside;
+    opacity: 0.9;
+}
+.aside .imglist{
+    grid-area: aside;
+    opacity: 1;
+}
+.bottom{
+    grid-area: bottom;
+    opacity : 0.0;
+}
+.footer{
+    grid-area: footer;
+    opacity : 0.0;    
+}
+
+
+
+body{
+    
+    background-image: url('img/background/mainBackground.jpg');
+    background-repeat: no-repeat;
+    background-size : cover;
+    font-family: 'KyoboHandwriting2021sjy';
+
+    
+}
+
+
+@font-face {
+    font-family: 'KyoboHandwriting2021sjy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    opacity: 1;
+}
+
