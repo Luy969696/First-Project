@@ -12,11 +12,7 @@
             <button type="submit">데이터 불러오기</button>
         </form>
         FOR 1 datalist<br>
-        <% if(locals.data){ %>
-            <% for(let i=0;i<data.length;i++){ %>
-                NAME : <%= data[i].name %>, AGE : <%= data[i].age %><br>
-            <% } %>
-        <% } %>
+
     </body>
 </html> -->
 
@@ -26,7 +22,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> 연아의 작품 사이2트 </title>
+        <title> 연아의 작품 사이트2 </title>
         <link rel="stylesheet" href="style.css">
         
 
@@ -47,15 +43,31 @@
 
 <body>
 
+
     <div class="container">  
 
         <div class="header">
-            작품 사이트
-            
+            연아의 작품 사이트
         </div>
+
+        
         <div class="menu">  
-                    s
+            <ul data-role="listview" data-inset="true">
+            <% if(locals.data){ %>
+                <% for(let i=0 ; i<data.length ; i++ ){ %>
+                <li>
+                <%= data[i].name %> : <%= data[i].context %>
+                </li>
+                <%      } %>
+                <% } %>
+            </ul>
+            <form action="AddData" method="post" >    
+                <input type="textarea" name = "Write_comment" id="Write_comment">
+                <button name="test">등록</button>
+            </form>
+
         </div>
+    
         <div class="main">  </div>
         <div class="top">  
             작가의 소개글 
@@ -103,11 +115,15 @@
                 
             </div>
             <div style="padding-left : 0">
-                <label for="ImgUpload" style="border-style: 2px;">
-                    이미지업로드
-                </label>    
+                <form action='upload' method='post' enctype='multipart/form-data'>
+                    <input type="file" name="userfile">
+                    <input type="submit">
+                    <!-- <label for="ImgUpload" style="border-style: 2px;">
+                        이미지업로드
+                    </label>     -->
+                </form>
             </div>            
-            <input type="file" id="ImgUpload" name ="ImgUpload" accept="image/*" multiple="multiple">
+            <!-- <input type="file" id="ImgUpload" name ="ImgUpload" accept="image/*" multiple="multiple"> -->
         </div>
         <div class="bottom">  </div>
             
@@ -125,7 +141,7 @@
 
 
 
-<script type="text/javascript" src="/function.js"></script>
+<!-- <script type="text/javascript" src="/function.js"></script> -->
 
 </html>
 

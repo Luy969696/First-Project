@@ -47,6 +47,16 @@
     grid-area: menu;
     opacity : 0.9;
 }
+/* .menu table{
+    border-style: solid;
+    width: 100%;
+} */
+
+
+.menu td{
+    border-style: solid;
+}
+
 .main{
     grid-area: main;
     opacity : 0.0;
