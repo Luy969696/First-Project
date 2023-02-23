@@ -1,12 +1,25 @@
-const { response, query } = require('express');
+//파일업로드
+var multer = require('multer');
+var _storage = multer.diskStorage({
+    destination: function(req,file,cb){
+        cb(null,'uploads/')
+    },
+    filename: function(req,file,cb){
+        cb(null,file.originalname)
+    }
+})
+var upload = multer({storage: _storage})
+
+var bodyParser = require('body-parser');
+const { response, query, application } = require('express');
 const express = require('express');
 const fs = require('fs');
 const { request } = require('http');
-var bodyParser = require('body-parser')
 const app = express();
 const ejs = require("ejs");
-const mainPage = fs.readFileSync('data.ejs', 'utf8');
+const mainPage = fs.readFileSync('data.html', 'utf8');
 const mysql = require('mysql');  // mysql 모듈 로드
+const { createBrotliCompress } = require('zlib');
 const conn = mysql.createConnection({  // mysql 접속 설정
     host: 'localhost',
     user: 'root',
@@ -14,65 +27,36 @@ const conn = mysql.createConnection({  // mysql 접속 설정
     database: 'sakila'
 });
 
+app.use('/user',express.static('uploads'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname+"/js"));
 
 app.listen(8080, function(){
     console.log('listening on 8080');
 });
 
 // app.get('/', (req, res) => {
-//     var page = ejs.render(mainPage, {
-//     title: "Temporary Title",
+//     conn.query("SELECT * FROM guest_book;", function(err, result, fields){
+//         if(err) throw err;
+//         else{
+//             var page = ejs.render(mainPage, {
+//                 title: "Temporary Title",
+//                 data: result,
+//             });
+//             res.send(page);
+//         }
 //     });
-//     res.send(page);
-//     // res.sendFile(__dirname + "/data.ejs")
 // });
- 
-app.post('/profile', function(req, res)  {
-    console.log(req.body)
-  })
-
 
 app.get('/', (req, res) => {
-    conn.query("SELECT * FROM guest_book;", function(err, result, fields){
-        if(err) throw err;
-        else{
-            var page = ejs.render(mainPage, {
-                title: "Temporary Title",
-                data: result,
-            });
-            // console.log(result)
-            res.send(page);
-            
-        }
-    });
+    res.sendFile(__dirname + "/data.html");
 });
 
-app.post("/AddData",(req,res)=>{
-    var comment = req.body.Write_comment;
 
-    // var body = req.body;
-    // console.log();
-    conn.query("insert into guest_book (name,context) values ('test',?);", [
-        comment
-      ], function() {
-        res.redirect('/')
-      })
-      
-    // conn.query(sql, function (err, result) {
-    //     if (err) throw err;
-    //     console.log("1 record inserted");
-    // });
-
-    // conn.query("SELECT * FROM friends;", function(err, result, fields){
-    //     if(err) throw err;
-    //     else{
-    //         var page = ejs.render(mainPage, {
-    //             title: "Temporary Title",
-    //             data: result,
-    //         });
-    //         res.send(page);
-    //     }
-    // });
+app.get('/aboutus', (req, res) => {
+    res.sendFile(__dirname + "/aboutus.html");
+});
+app.get('/works', (req, res) => {
+    res.sendFile(__dirname + "/works.html");
 });
