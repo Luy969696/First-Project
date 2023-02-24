@@ -6,22 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> 연아의 작품 사이트 </title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="works.css">
-        
-
-
-        
-
+        <link rel="stylesheet" href="public/style.css">
+        <link rel="stylesheet" href="public/works.css">
 
 </head>
 
 <body>
     
     <div class="navBox">
-        <img class="iconBtn" id="menuBtn" src="/img/icons/menuBtn.png"/>
+        <img class="iconBtn" id="menuBtn" src="public/img/icons/menuBtn.png"/>
          <a id="title">VIVID</a>
-        <a href="https://www.instagram.com/r_vivid_y/" target="_blank"><img class="iconBtn" id="menuBtn" src="/img/icons/instagram.png"/></a>
+        <a href="https://www.instagram.com/r_vivid_y/" target="_blank"><img class="iconBtn" id="menuBtn" src="public/img/icons/instagram.png"/></a>
     </div>
     
     <div class="menuWrap">
@@ -44,50 +39,76 @@
             </nav>
     </div>
 
-    <div id="instagram">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
+    <div class="Content">
+        <div id="YearCategori"></div>
+        <div id="instagram">   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
             /*
-                발급된 토큰은 장기 실행 액세스 토큰으로 60일간 사용이 가능합니다.
-                https://developers.facebook.com/docs/instagram-basic-display-api/guides/long-lived-access-tokens
-
-                발급된 토큰은 만료일(60일)이내에 refresh_access_token혹은, 페이스북 개발자 센터내의 토큰 재발급을 통해 연장을 해주어야합니다.
-                https://developers.facebook.com/docs/instagram-basic-display-api/reference/refresh_access_token
-            */
-            var token = "IGQVJXOXdqaFhUNTU0VjFrOG0ta0V0X0M0c2J2TXpqemhzWjFMcmJnLUs3N2pvR01vd1FHN09OSFRUWkZAwdC1DVVYxUnhYZA3dSbXdDcGNudUxWaHdpV2FVaWtmbnhkZA1VxM1dvM0tYbThwSDRTcFo0UgZDZD";
-
+            발급된 토큰은 장기 실행 액세스 토큰으로 60일간 사용이 가능합니다.
+            https://developers.facebook.com/docs/instagram-basic-display-api/guides/long-lived-access-tokens
             
+            발급된 토큰은 만료일(60일)이내에 refresh_access_token혹은, 페이스북 개발자 센터내의 토큰 재발급을 통해 연장을 해주어야합니다.
+            https://developers.facebook.com/docs/instagram-basic-display-api/reference/refresh_access_token
+            */
+            var token = "IGQVJVYUQtUmNpZAUVuRTA1RzRRZAEtfMnlMRTlfSkw1eXZAvcWYzYXNLeXJuM0lZAbTNvcG15OC1pWC1PQ1pGR3VDb3BwUGZAPTDlROWdZAV2FZAVHdBWlNPaTRwSklFZAVdDMVUwRE1EeGxacjI2VC1aY0pQRwZDZD";
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
                 cache: false,
-                url: "https://graph.instagram.com/me/media?access_token=" + token + "&fields=id,caption,media_type,media_url,thumbnail_url,permalink",
+                url: "https://graph.instagram.com/me/media?access_token=" + token + "&fields=id,caption,media_type,media_url,thumbnail_url,timestamp,permalink",
                 success: function(response) {
                     console.log(response);
+                    var ContentDateArr = new Array();
+                    var PostAll="";
+                    
                     if (response.data != undefined && response.data.length > 0) {
-                        for(i = 0; i < 20; i++){
+                        for(i = 0; i < 100; i++){
                             if(response.data[i]){
                                 var item = response.data[i];
                                 var image_url = "";
                                 var post = "";
+
+                                var ContentDate =new Date(item.timestamp).getFullYear();
+                                var YearBtn = "";
+                                
+
+
+                                if(!ContentDateArr.includes(ContentDate)){
+                                    ContentDateArr.push(ContentDate)       
+                                    console.log(ContentDate+"Yammy"+ContentDateArr +":"+ContentDateArr.includes(ContentDate)); 
+                                }
+                                console.log(ContentDateArr);
+                                
                                 if(item.media_type === "VIDEO"){
                                     image_url = item.thumbnail_url;
                                 }else{
                                     image_url = item.media_url;
                                 }
-                                post += '<div class="instagram_item instagram_item'+i+'">';
-                                    post += '<a href="'+ item.permalink +'" target="_blank" rel="noopener noreferrer" style="background-image: url(' + image_url + ');">';
-                                        post += '<p>'+ item.caption +'</p>';
-                                    post += '</a>';
+                                
+                                post += '<div class="instagram_item instagram_item'+i+' instagram_item_year'+ContentDate+'">"';
+                                post += '<a href="'+ item.permalink +'" target="_blank" rel="noopener noreferrer" style="background-image: url(' + image_url + ');">';
+                                    post += '<p>'+ item.caption +'</p>';
+                                post += '</a>';
                                 post += '</div>';
                                 $('#instagram').append(post);
+                                
                             }else{
                                 // if no curent item
                                 show_fallback('#insta-item-'+i)
                             }
                         }
+                        
+                        if(ContentDateArr.length > 0){
+                            var ATagpost = ""
+                            ContentDateArr.forEach(element => {
+                                ATagpost += `<p><a id="YearCategori" href="${element}"> ${element}  </a></p>`
+                            });
+                            $('#YearCategori').append(ATagpost);
+                        }
+
+
+
                     }else{
                         // if api error
                         show_fallback('.instagram-item')
@@ -103,8 +124,10 @@
             }
         </script>
     </div>
+</div>
 
-    <script type="text/javascript" src="action.js"></script>
+
+    <script type="text/javascript" src="js/action.js"></script>
 
     
     

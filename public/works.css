@@ -23,13 +23,17 @@ caption,th,td {text-align: left;font-weight: normal;}
 figure,article,header,footer,nav,hgroup,video,audio,aside,main {display: block;}
 #instagram {overflow: hidden;
             width: 70%;
-            padding-top : 10%;
+            padding-top : 1%;
             margin: auto;
+            background-color: #ffff;
 }
-.instagram_item {float: left;width: 20%;padding-right: 1px; padding-bottom: 1px;}
+.instagram_item {float: left;width: 30%;padding-right: 1px; padding-bottom: 1px;}
 .instagram_item > a {display: block;width: 100%;padding-top: 100%;position: relative;background: no-repeat center center;background-size: cover;}
 .instagram_item > a:before {content: '';position: absolute;left: 0;right: 0;top: 0;bottom: 0;background: #000000;background: rgba(0, 0, 0, .8);background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .8) 100%);background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .8) 100%);background: radial-gradient(ellipse at center, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .8) 100%);z-index: 1;opacity: 0;-webkit-transition: opacity .55s cubic-bezier(.215, .61, .355, 1);transition: opacity .55s cubic-bezier(.215, .61, .355, 1);}
 .instagram_item p {width: 100%;padding: 19px 57px;position: absolute;left: 0;top: 50%;font-size: 16px;font-weight: 400;text-align: left;color: #fff;transform: translateY(-50%);z-index: 2;opacity: 0;-webkit-transition: opacity .55s cubic-bezier(.215,.61,.355,1);transition: opacity .55s cubic-bezier(.215,.61,.355,1);}
 .instagram_item > a:hover:before {opacity: 1;}
 .instagram_item > a:hover p {opacity: 1;}
-
+#YearCategori{
+    text-align: center;
+    font-size: 30px;
+}

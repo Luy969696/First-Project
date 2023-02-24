@@ -29,8 +29,8 @@ const conn = mysql.createConnection({  // mysql 접속 설정
 
 app.use('/user',express.static('uploads'))
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static(__dirname+"/public"));
-app.use(express.static(__dirname+"/js"));
+//app.use(express.static(__dirname+"/public"));
+//app.use(express.static(__dirname+"/js"));
 
 app.listen(8080, function(){
     console.log('listening on 8080');
@@ -50,6 +50,10 @@ app.listen(8080, function(){
 // });
 
 app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/data.html");
+});
+
+app.get('/a', (req, res) => {
     res.sendFile(__dirname + "/data.html");
 });
 
