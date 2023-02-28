@@ -1,3 +1,7 @@
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   document
     .querySelector("#menuBtn")
@@ -23,4 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function chk_form(){
   document.getElementById('frm').onsubmit();
+}
+
+function chk_yearList(){
+  const element = document.getElementsByClassName("instagram_item_year2022");
+  console.log(element);
 }
