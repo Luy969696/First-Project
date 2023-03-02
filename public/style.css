@@ -1,63 +1,67 @@
+body {
 
-
-body{
-    
-    background-image: url('img/background/mainBackground.jpg');
-    background-repeat: no-repeat;
-    background-size : cover;
-    font-family: 'KyoboHandwriting2021sjy';
+  background-image: url('img/background/mainBackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'KyoboHandwriting2021sjy';
 }
 
 
 @font-face {
-    font-family: 'KyoboHandwriting2021sjy';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    opacity: 1;
+  font-family: 'KyoboHandwriting2021sjy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  opacity: 1;
 }
 
 .menuWrap.on {
-    left: 0;
+  left: 0;
 }
+
 .menuWrap {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    z-index: 400;
-    width: 300px;
-    height: 100%;
-    padding: 50px 20px;
-    box-sizing: border-box;
-    transition: left 0.6s ease-in-out;
-    background-color: #ffffff;
-  }
-.menuWrap #menu{
+  position: fixed;
+  top: 0;
+  left: -300px;
+  z-index: 400;
+  width: 300px;
+  height: 100%;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  transition: left 0.6s ease-in-out;
+  background-color: #ffffff;
+
+}
+
+.menuWrap #menu {
   line-height: 80px;
   letter-spacing: 10px;
-  padding: 70px 20px ;
+  padding: 70px 20px;
   font-size: 30px;
 }
 
 
 #menuBtn {
-    position:sticky;
-    width: 35px;
-    top:500px;
-    z-index: 401;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    
-  }
+  position: sticky;
+  width: 35px;
+  top: 500px;
+  z-index: 401;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
 
-.iconBtn{
-    width:35px;
-    cursor:pointer;
 }
+
+.iconBtn {
+  width: 35px;
+  cursor: pointer;
+}
+
 .btnRotate {
-    transform: rotate(-90deg);
-    transition: all 0.3s ease-in-out;
-  }
+  transform: rotate(-90deg);
+  transition: all 0.3s ease-in-out;
+}
+
 #dimmed {
   position: fixed;
   top: 0;
@@ -73,21 +77,26 @@ body{
   justify-content: space-between;
   align-items: center;
 }
-.navBox #title{
+
+.navBox #title {
   font-size: 40px;
 }
 
-a{
+.menuWrap a {
+
+  color: black;
   text-decoration: none;
 }
-a:hover{
+
+.menuWrap a:hover {
   font-size: 35px;
   font-weight: bold;
   transition-property: all;
 }
-a:active{
-    /* font-size:100px; */
+
+
+
+#title {
+  color: black;
+  text-decoration: none;
 }
-/* a:active{
-  
-} */

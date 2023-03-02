@@ -6,18 +6,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> 연아의 작품 사이트 </title>
-        <link rel="stylesheet" href="public/style.css">
-        <link rel="stylesheet" href="public/works.css">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/works.css">
 
 </head>
 
 <body>
     
-    <div class="navBox">
-        <img class="iconBtn" id="menuBtn" src="public/img/icons/menuBtn.png"/>
-         <a id="title">VIVID</a>
-        <a href="https://www.instagram.com/r_vivid_y/" target="_blank"><img class="iconBtn" id="menuBtn" src="public/img/icons/instagram.png"/></a>
-    </div>
+    <span class="navBox">
+        <img class="iconBtn" id="menuBtn" src="/img/icons/menuBtn.png"/>
+        <form id="home" action="/" method="get">
+            <a id="title" href="#" onclick="return document.getElementById('home').submit();">VIVID</a>
+        </form>
+        <a href="https://www.instagram.com/r_vivid_y/" target="_blank"><img class="iconBtn" id="menuBtn" src="/img/icons/instagram.png"/></a>
+    </span>
+
     
     <div class="menuWrap">
         <nav id="menu">
@@ -41,7 +44,7 @@
 
     <div class="Content">
         <div id="YearCategori"></div>
-        <div id="instagram">   
+        <div id="instagram" class="instagram_item_hidden" >   
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
             /*
@@ -51,7 +54,7 @@
             발급된 토큰은 만료일(60일)이내에 refresh_access_token혹은, 페이스북 개발자 센터내의 토큰 재발급을 통해 연장을 해주어야합니다.
             https://developers.facebook.com/docs/instagram-basic-display-api/reference/refresh_access_token
             */
-            var token = "IGQVJYeDAtc0MxU0l0THNQdjgxb0w5dnZARejRiUTM0bzRUUkRjYWNvUU43a1VBc2duV3YzVE43aVh3MDlUTE0yM0d1azBfa1lwTmhvTlk5M1ZANZAzVoNmJOQVJMWVRtd1RlWFI1cld1U3QwWS11ZAFd1QgZDZD";
+            var token = "IGQVJVOXFvOU4xSlNjRVBZAWmRKVzZApRWtLRURSdzVyY1M1Vko3bS1yQ0JqaFlZAMjJNTjZAFZAGw1WHNjbzU5bnk3ZA2ZAsRmpQVS1lNEdLaE02czZA4eTg0N2pKWFFfNzc2TFloSjZA1RnJRb3d3Y2lsalNucwZDZD";
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
@@ -86,9 +89,9 @@
                                     image_url = item.media_url;
                                 }
                                 
-                                post += '<div class="instagram_item instagram_item'+i+' instagram_item_year'+ContentDate+'">"';
+                                post += '<div class="instagram_item instagram_item_hidden instagram_item'+i+' instagram_item_year'+ContentDate+'">';
                                 post += '<a href="'+ item.permalink +'" target="_blank" rel="noopener noreferrer" style="background-image: url(' + image_url + ');">';
-                                    post += '<p>'+ item.caption +'</p>';
+                                post += '<p>'+ item.caption +'</p>';
                                 post += '</a>';
                                 post += '</div>';
                                 $('#instagram').append(post);
@@ -102,13 +105,11 @@
                         if(ContentDateArr.length > 0){
                             var ATagpost = ""
                             ContentDateArr.forEach(element => {
-                                ATagpost += `<p><a id="YearCategori" href="${element}"> ${element}  </a></p>`
+                                
+                                ATagpost += `<p><a id="YearCategori" href="#" onclick="chk_Arr(${element})"> ${element}  </a></p>`
                             });
                             $('#YearCategori').append(ATagpost);
                         }
-
-
-
                     }else{
                         // if api error
                         show_fallback('.instagram-item')

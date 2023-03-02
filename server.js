@@ -29,11 +29,22 @@ const conn = mysql.createConnection({  // mysql 접속 설정
 
 app.use('/user',express.static('uploads'))
 app.use(bodyParser.urlencoded({ extended: false }))
-//app.use(express.static(__dirname+"/public"));
-//app.use(express.static(__dirname+"/js"));
+// app.use(express.static('public', {
+//     setHeaders: (res, path, stat) => {
+//       if (path.endsWith('.js')) {
+//         res.setHeader('Content-Type', 'text/javascript');
+//       } else if (path.endsWith('.css')) {
+//         res.setHeader('Content-Type', 'text/css');
+//       }
+//     }
+//   }));
+app.use(express.static(__dirname+"/public"));
+
 
 app.listen(8080, function(){
     console.log('listening on 8080');
+    console.log(__dirname + " : real address");
+    
 });
 
 // app.get('/', (req, res) => {
@@ -50,6 +61,7 @@ app.listen(8080, function(){
 // });
 
 app.get('/', (req, res) => {
+    // res.sendFile(__dirname + "/data.html");
     res.sendFile(__dirname + "/data.html");
 });
 

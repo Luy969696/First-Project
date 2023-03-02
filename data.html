@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> 연아의 작품 사이트 </title>
-        <link rel="stylesheet" href="public/style.css">
+        <link rel="stylesheet" href="/style.css">
         
 
 
@@ -25,12 +25,16 @@
 
 <body>
     
-    <div class="navBox">
-        <img class="iconBtn" id="menuBtn" src="public/img/icons/menuBtn.png"/>
-         <a id="title">VIVID</a>
-        <a href="https://www.instagram.com/r_vivid_y/" target="_blank"><img class="iconBtn" id="menuBtn" src="public/img/icons/instagram.png"/></a>
-    </div>
+    <span class="navBox">
+        <img class="iconBtn" id="menuBtn" src="/img/icons/menuBtn.png"/>
+        <form id="home" action="/" method="get">
+            <a id="title" href="#" onclick="return document.getElementById('home').submit();">VIVID</a>
+        </form>
+        <a href="https://www.instagram.com/r_vivid_y/" target="_blank"><img class="iconBtn" id="menuBtn" src="/img/icons/instagram.png"/></a>
+    </span>
     
+
+
     <div class="menuWrap">
         <nav id="menu">
                 <form id="frm1" action="aboutus" method="get">

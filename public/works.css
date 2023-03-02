@@ -25,7 +25,9 @@ figure,article,header,footer,nav,hgroup,video,audio,aside,main {display: block;}
             width: 70%;
             padding-top : 1%;
             margin: auto;
-            background-color: #ffff;
+            /* background-color: #ffff; */
+
+  background-color: rgba(255, 255, 255, .05);
 }
 .instagram_item {float: left;width: 30%;padding-right: 1px; padding-bottom: 1px;}
 .instagram_item > a {display: block;width: 100%;padding-top: 100%;position: relative;background: no-repeat center center;background-size: cover;}
@@ -36,4 +38,10 @@ figure,article,header,footer,nav,hgroup,video,audio,aside,main {display: block;}
 #YearCategori{
     text-align: center;
     font-size: 30px;
+}
+#YearCategori .instagram_item_selected{
+       font-size : 5000px;
+}
+.instagram_item_hidden{
+    display: none;
 }

@@ -1,0 +1,15 @@
+에디터 단축키:
+
+줄 삭제: Command + Shift + K
+줄 이동: Option + Up/Down
+코드 정렬: Option + Shift + F
+다음 찾기: Command + G
+이전 찾기: Command + Shift + G
+줄 주석 처리: Command + /
+디버깅 단축키:
+
+디버그 시작: F5
+중지: Shift + F5
+계속: F5
+단계별 실행: F10
+함수 단위 실행: F11
