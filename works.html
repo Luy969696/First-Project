@@ -54,7 +54,8 @@
             발급된 토큰은 만료일(60일)이내에 refresh_access_token혹은, 페이스북 개발자 센터내의 토큰 재발급을 통해 연장을 해주어야합니다.
             https://developers.facebook.com/docs/instagram-basic-display-api/reference/refresh_access_token
             */
-            var token = "IGQVJVOXFvOU4xSlNjRVBZAWmRKVzZApRWtLRURSdzVyY1M1Vko3bS1yQ0JqaFlZAMjJNTjZAFZAGw1WHNjbzU5bnk3ZA2ZAsRmpQVS1lNEdLaE02czZA4eTg0N2pKWFFfNzc2TFloSjZA1RnJRb3d3Y2lsalNucwZDZD";
+
+            var token = "IGQVJWazc3VTJxaVJkTm80SzJEa2kyVHBBRFhENjYzTFFHNmpKRlhKRUdfQWRMV0VmVGJDWVVtTUpiLWdHcWpXYzVBTm04M2ZAVYXFvRC1qYnV4Q2VxSENqbTA0ZAXZAQbmlDVHZATWWdZAa3NXb1RQWE1YagZDZD";
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
@@ -95,7 +96,6 @@
                                 post += '</a>';
                                 post += '</div>';
                                 $('#instagram').append(post);
-                                
                             }else{
                                 // if no curent item
                                 show_fallback('#insta-item-'+i)
@@ -107,6 +107,10 @@
                             ContentDateArr.forEach(element => {
                                 
                                 ATagpost += `<p><a id="YearCategori" href="#" onclick="chk_Arr(${element})"> ${element}  </a></p>`
+
+                                // ATagpost += `<p><a id="YearCategori" href="${element}"> ${element}  </a></p>`
+                                ATagpost += `<p><a id="YearCategori" href="#" onclick="chk_yearList(); return false;"> ${element}  </a></p>`
+
                             });
                             $('#YearCategori').append(ATagpost);
                         }
@@ -128,8 +132,12 @@
 </div>
 
 
-    <script type="text/javascript" src="js/action.js"></script>
+    <script type="text/javascript" src="js/action.js">
+    </script>
 
+    <script>
+
+    </script>
     
     
 </body>
