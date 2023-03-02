@@ -55,7 +55,7 @@
             https://developers.facebook.com/docs/instagram-basic-display-api/reference/refresh_access_token
             */
 
-            var token = "IGQVJWazc3VTJxaVJkTm80SzJEa2kyVHBBRFhENjYzTFFHNmpKRlhKRUdfQWRMV0VmVGJDWVVtTUpiLWdHcWpXYzVBTm04M2ZAVYXFvRC1qYnV4Q2VxSENqbTA0ZAXZAQbmlDVHZATWWdZAa3NXb1RQWE1YagZDZD";
+            var token = "IGQVJWcVQzSDBSYTg0R0pYaXNla21fT1l2bEJIeFgxM3ljOG40U0xPWWlwUHNoa0tvanNfbE1uWmlfSUlUMVlwcGdzSElEajB5MWE1OVZA6bVFHVjVaRVNMRGVsdFAwWFlGeWNhQ0tjVkpRTlhVdWcySwZDZD";
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
@@ -105,12 +105,7 @@
                         if(ContentDateArr.length > 0){
                             var ATagpost = ""
                             ContentDateArr.forEach(element => {
-                                
                                 ATagpost += `<p><a id="YearCategori" href="#" onclick="chk_Arr(${element})"> ${element}  </a></p>`
-
-                                // ATagpost += `<p><a id="YearCategori" href="${element}"> ${element}  </a></p>`
-                                ATagpost += `<p><a id="YearCategori" href="#" onclick="chk_yearList(); return false;"> ${element}  </a></p>`
-
                             });
                             $('#YearCategori').append(ATagpost);
                         }
@@ -134,11 +129,6 @@
 
     <script type="text/javascript" src="js/action.js">
     </script>
-
-    <script>
-
-    </script>
-    
     
 </body>
 </html>
