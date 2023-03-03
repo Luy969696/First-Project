@@ -29,15 +29,7 @@ const conn = mysql.createConnection({  // mysql 접속 설정
 
 app.use('/user',express.static('uploads'))
 app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(express.static('public', {
-//     setHeaders: (res, path, stat) => {
-//       if (path.endsWith('.js')) {
-//         res.setHeader('Content-Type', 'text/javascript');
-//       } else if (path.endsWith('.css')) {
-//         res.setHeader('Content-Type', 'text/css');
-//       }
-//     }
-//   }));
+
 app.use(express.static(__dirname+"/public"));
 
 

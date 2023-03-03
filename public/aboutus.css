@@ -1,0 +1,29 @@
+
+
+.loading-text {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 0s steps(1000, end) forwards;
+    background-color: white;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  ul{
+    list-style: none;
+    line-height: 2.5em;
+    /* background-color: ; */
+  }
+
+  body{
+  }

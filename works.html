@@ -43,7 +43,7 @@
     </div>
 
     <div class="Content">
-        <div id="YearCategori"></div>
+        <div class="YearCategori"></div>
         <div id="instagram" class="instagram_item_hidden" >   
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
@@ -55,7 +55,7 @@
             https://developers.facebook.com/docs/instagram-basic-display-api/reference/refresh_access_token
             */
 
-            var token = "IGQVJWcVQzSDBSYTg0R0pYaXNla21fT1l2bEJIeFgxM3ljOG40U0xPWWlwUHNoa0tvanNfbE1uWmlfSUlUMVlwcGdzSElEajB5MWE1OVZA6bVFHVjVaRVNMRGVsdFAwWFlGeWNhQ0tjVkpRTlhVdWcySwZDZD";
+            var token = "IGQVJYRjYtNF93TkdTQjlfbU4zeWxETlZACNDUzVHBJTkJrdzRuTjF2ZA3lsNzNmMW1ITXphMUJtZAC01cjUxTTg5b3NLc1c5T2RNUVBvLXBDVlBjVkVBSjk5V2hTUnExWVppRU00b1Nyd2JEN1FURDlyMQZDZD";
             $.ajax({
                 type: "GET",
                 dataType: "jsonp",
@@ -102,12 +102,12 @@
                             }
                         }
                         
-                        if(ContentDateArr.length > 0){
+                        if(ContentDateArr.length > 0){ // 연도별 카테고리 생성 
                             var ATagpost = ""
                             ContentDateArr.forEach(element => {
-                                ATagpost += `<p><a id="YearCategori" href="#" onclick="chk_Arr(${element})"> ${element}  </a></p>`
+                                ATagpost += `<p><a class="YearCategori" id="year${element}" href="#" onclick="chk_Arr(${element})"> ${element}  </a></p>`
                             });
-                            $('#YearCategori').append(ATagpost);
+                            $('.YearCategori').append(ATagpost);
                         }
                     }else{
                         // if api error

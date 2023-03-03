@@ -31,8 +31,9 @@ function chk_form(){
 
 
 function chk_Arr(year){
-  const divInstagram = document.getElementById("instagram");
-  const element = document.querySelectorAll('[class*=instagram_item_year]');
+  const divInstagram = document.getElementById("instagram"); // 인스타그램 아이템 DIV
+  const element = document.querySelectorAll('[class*=instagram_item_year]'); // 인스타그램 각각의 아이템
+  const elementYear = document.querySelectorAll('[id*=year]');
 
   if(element!==null){
     divInstagram.classList.remove('instagram_item_hidden');
@@ -42,16 +43,25 @@ function chk_Arr(year){
   
   element.forEach(function(element){
     if(element.classList.contains("instagram_item_year"+year)){
-      element.classList.remove('instagram_item_hidden');    
+      element.classList.remove('instagram_item_hidden');
     }else{
       element.classList.add("instagram_item_hidden");
     }
   });
+
+
+  elementYear.forEach(function(element){
+    if(element.id==="year" + year){
+      element.classList.add("instagram_item_selected");
+    }else{
+      element.classList.remove("instagram_item_selected");
+    }
+  })
+
+  // if(elementYear !== null){
+  //   element.classList.add("instagram_item_selected");
+  // }
+
+  
+
 }
-
-function chk_yearList(){
-  const element = document.getElementsByClassName("instagram_item_year2022");
-  console.log(element);
-}
-
-
