@@ -33,4 +33,22 @@
     font-size:24px;
     font-weight: normal;
   }
-/*  */
+
+
+/* 
+  / name 설정
+git config --global user.name "name"
+
+// email 설정
+git config --global user.email "email"
+
+// 설정한 name 확인
+git config --global user.name
+
+// 설정한 email 확인
+git config --global user.email
+
+// git 설정 내용 모두 출력
+git config --list git
+ss */
+
