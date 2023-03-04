@@ -2,7 +2,7 @@
 
 .loading-text {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: normal;
     letter-spacing: 4px;
     white-space: nowrap;
     overflow: hidden;
@@ -25,5 +25,11 @@
     /* background-color: ; */
   }
 
-  body{
+  li.title{
+    font-size: 35px;
+    font-weight: bold;
+  }
+  li.title > ul > li {
+    font-size:24px;
+    font-weight: normal;
   }

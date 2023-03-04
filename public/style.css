@@ -102,16 +102,18 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'KyoboHandwriting2021sjy';
+  font-family: 'Nanum Gothic', sans-serif; 
+  font-family: 'Daughter_handwriting', cursive; 
+  font-weight:normal;
+  font-style: normal;
+  opacity: 1;
 }
 
 
 @font-face {
-  font-family: 'KyoboHandwriting2021sjy';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  opacity: 1;
+  font-family: 'Daughter_handwriting';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_03@1.0/Daughter_handwriting.woff') format('woff');
+  unicode-range: U+41-5A, U+61-7A;
 }
 
 .menuWrap.on {
