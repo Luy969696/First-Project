@@ -103,24 +103,19 @@ body {
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Nanum Gothic', sans-serif; 
-  font-family: 'Daughter_handwriting', cursive; 
+  /* font-family: 'Daughter_handwriting', cursive;  */
   font-weight:normal;
   font-style: normal;
   opacity: 1;
 }
 
 
-@font-face {
-  font-family: 'Daughter_handwriting';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_03@1.0/Daughter_handwriting.woff') format('woff');
-  unicode-range: U+41-5A, U+61-7A;
-}
-
 .menuWrap.on {
   left: 0;
 }
 
 .menuWrap {
+  font-family : "Daughter_handwriting";
   position: fixed;
   top: 0;
   left: -300px;
@@ -197,6 +192,7 @@ body {
 
 
 #title {
+  font-family : "Daughter_handwriting";
   color: black;
   text-decoration: none;
 }
@@ -212,3 +208,8 @@ body {
   background-color: #000;
 }
 
+@font-face {
+  font-family: 'Daughter_handwriting';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_03@1.0/Daughter_handwriting.woff') format('woff');
+  unicode-range: U+41-5A, U+61-7A;
+}
