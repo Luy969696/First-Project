@@ -7,7 +7,7 @@
     white-space: nowrap;
     overflow: hidden;
     animation: typing 0s steps(1000, end) forwards;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.7);
   }
   
   @keyframes typing {

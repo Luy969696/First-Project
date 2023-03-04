@@ -65,3 +65,33 @@ function chk_Arr(year){
   
 
 }
+
+
+
+function test(){
+  const accessToken = "IGQVJYVW5tZATRTUHBrU0s0elJFR0RUZAU5YVEh3bVJPVkN2RktIRzdMakVwMktwUHNfVWhWLTdHVVFIUm9hU0ZAGQThxVkNqNUdMdmJMU1ZAiS2R1NEdheV8zbUYwMzF5TVVlVS1reVNpOEJEUUc1ZAnpkYwZDZD";
+  const hashtags = ["python", "data", "analysis"]; // 검색할 해시태그
+  
+  // 각 해시태그 별로 게시물 수를 계산합니다.
+  const counts = {};
+  for (const hashtag of hashtags) {
+    const url = `https://api.instagram.com/v1/tags/${hashtag}/media/recent?access_token=${accessToken}`;
+    console.log(url);
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const count = data.data.length;
+        counts[hashtag] = count;
+  
+        // 모든 해시태그에 대한 게시물 수를 계산한 경우, 랭킹순위를 출력합니다.
+        if (Object.keys(counts).length === hashtags.length) {
+          const rankedHashtags = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+          for (let i = 0; i < rankedHashtags.length; i++) {
+            console.log(`${i + 1}: ${rankedHashtags[i]} (${counts[rankedHashtags[i]]})`);
+          }
+        }
+      })
+      .catch(error => console.log(error));
+  }
+   
+}
